@@ -22,6 +22,6 @@
 - (void)_debuggerCommandActionCommonInit;
 @end
 
-@interface AttachToProcessBreakpointActionActionEditor : NSViewController
+@interface AttachToProcessBreakpointActionEditor : NSViewController
 - (id)initWithAction:(IDEBreakpointAction*)action;
 @end

@@ -47,7 +47,7 @@
 }
 @end
 
-@implementation AttachToProcessBreakpointActionActionEditor
+@implementation AttachToProcessBreakpointActionEditor
 - (id)initWithAction:(IDEBreakpointAction*)action {
   NSBundle* bundle = [AttachToProcessBreakpointActionPlugin sharedPlugin].bundle;
   if ((self = [super initWithNibName:@"AttachToProcessBreakpointActionEditor" bundle:bundle])) {
