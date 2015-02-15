@@ -8,7 +8,7 @@
 
 #import <AppKit/AppKit.h>
 
-@interface AttachToProcessBreakpointAction : NSObject
+@interface AttachToProcessBreakpointActionPlugin : NSObject
 
 + (instancetype)sharedPlugin;
 

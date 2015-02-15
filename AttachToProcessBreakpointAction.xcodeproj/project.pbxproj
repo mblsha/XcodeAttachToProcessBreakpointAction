@@ -10,7 +10,9 @@
 		79FD4F8C1A90ED6800B43C63 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79FD4F8B1A90ED6800B43C63 /* AppKit.framework */; };
 		79FD4F8E1A90ED6800B43C63 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79FD4F8D1A90ED6800B43C63 /* Foundation.framework */; };
 		79FD4F931A90ED6800B43C63 /* AttachToProcessBreakpointAction.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 79FD4F921A90ED6800B43C63 /* AttachToProcessBreakpointAction.xcscheme */; };
-		79FD4F961A90ED6800B43C63 /* AttachToProcessBreakpointAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FD4F951A90ED6800B43C63 /* AttachToProcessBreakpointAction.m */; };
+		79FD4F961A90ED6800B43C63 /* AttachToProcessBreakpointActionPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FD4F951A90ED6800B43C63 /* AttachToProcessBreakpointActionPlugin.m */; };
+		79FD4FA51A90F8E900B43C63 /* DVTFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79FD4FA31A90F8E900B43C63 /* DVTFoundation.framework */; };
+		79FD4FA61A90F8E900B43C63 /* DVTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79FD4FA41A90F8E900B43C63 /* DVTKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,8 +21,15 @@
 		79FD4F8D1A90ED6800B43C63 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		79FD4F911A90ED6800B43C63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79FD4F921A90ED6800B43C63 /* AttachToProcessBreakpointAction.xcscheme */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = AttachToProcessBreakpointAction.xcscheme; path = AttachToProcessBreakpointAction.xcodeproj/xcshareddata/xcschemes/AttachToProcessBreakpointAction.xcscheme; sourceTree = SOURCE_ROOT; };
-		79FD4F941A90ED6800B43C63 /* AttachToProcessBreakpointAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AttachToProcessBreakpointAction.h; sourceTree = "<group>"; };
-		79FD4F951A90ED6800B43C63 /* AttachToProcessBreakpointAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AttachToProcessBreakpointAction.m; sourceTree = "<group>"; };
+		79FD4F941A90ED6800B43C63 /* AttachToProcessBreakpointActionPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AttachToProcessBreakpointActionPlugin.h; sourceTree = "<group>"; };
+		79FD4F951A90ED6800B43C63 /* AttachToProcessBreakpointActionPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AttachToProcessBreakpointActionPlugin.m; sourceTree = "<group>"; };
+		79FD4F9C1A90EE4E00B43C63 /* DebuggerUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DebuggerUI.h; path = "xcode-headers/DebuggerUI.h"; sourceTree = "<group>"; };
+		79FD4F9D1A90EE4E00B43C63 /* DVTFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DVTFoundation.h; path = "xcode-headers/DVTFoundation.h"; sourceTree = "<group>"; };
+		79FD4F9E1A90EE4E00B43C63 /* IDEFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDEFoundation.h; path = "xcode-headers/IDEFoundation.h"; sourceTree = "<group>"; };
+		79FD4F9F1A90EE4E00B43C63 /* IDEKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDEKit.h; path = "xcode-headers/IDEKit.h"; sourceTree = "<group>"; };
+		79FD4FA11A90F7B500B43C63 /* DVTFoundation-subset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "DVTFoundation-subset.h"; path = "xcode-headers/DVTFoundation-subset.h"; sourceTree = "<group>"; };
+		79FD4FA31A90F8E900B43C63 /* DVTFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVTFoundation.framework; path = ../../../../../../Applications/Xcode.app/Contents/SharedFrameworks/DVTFoundation.framework; sourceTree = "<group>"; };
+		79FD4FA41A90F8E900B43C63 /* DVTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVTKit.framework; path = ../../../../../../Applications/Xcode.app/Contents/SharedFrameworks/DVTKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +39,8 @@
 			files = (
 				79FD4F8C1A90ED6800B43C63 /* AppKit.framework in Frameworks */,
 				79FD4F8E1A90ED6800B43C63 /* Foundation.framework in Frameworks */,
+				79FD4FA51A90F8E900B43C63 /* DVTFoundation.framework in Frameworks */,
+				79FD4FA61A90F8E900B43C63 /* DVTKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +67,8 @@
 		79FD4F8A1A90ED6800B43C63 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				79FD4FA31A90F8E900B43C63 /* DVTFoundation.framework */,
+				79FD4FA41A90F8E900B43C63 /* DVTKit.framework */,
 				79FD4F8B1A90ED6800B43C63 /* AppKit.framework */,
 				79FD4F8D1A90ED6800B43C63 /* Foundation.framework */,
 			);
@@ -65,8 +78,9 @@
 		79FD4F8F1A90ED6800B43C63 /* AttachToProcessBreakpointAction */ = {
 			isa = PBXGroup;
 			children = (
-				79FD4F941A90ED6800B43C63 /* AttachToProcessBreakpointAction.h */,
-				79FD4F951A90ED6800B43C63 /* AttachToProcessBreakpointAction.m */,
+				79FD4FA01A90EE5400B43C63 /* xcode-headers */,
+				79FD4F941A90ED6800B43C63 /* AttachToProcessBreakpointActionPlugin.h */,
+				79FD4F951A90ED6800B43C63 /* AttachToProcessBreakpointActionPlugin.m */,
 				79FD4F901A90ED6800B43C63 /* Supporting Files */,
 			);
 			path = AttachToProcessBreakpointAction;
@@ -79,6 +93,18 @@
 				79FD4F921A90ED6800B43C63 /* AttachToProcessBreakpointAction.xcscheme */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		79FD4FA01A90EE5400B43C63 /* xcode-headers */ = {
+			isa = PBXGroup;
+			children = (
+				79FD4F9C1A90EE4E00B43C63 /* DebuggerUI.h */,
+				79FD4F9D1A90EE4E00B43C63 /* DVTFoundation.h */,
+				79FD4F9E1A90EE4E00B43C63 /* IDEFoundation.h */,
+				79FD4F9F1A90EE4E00B43C63 /* IDEKit.h */,
+				79FD4FA11A90F7B500B43C63 /* DVTFoundation-subset.h */,
+			);
+			name = "xcode-headers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,7 +174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79FD4F961A90ED6800B43C63 /* AttachToProcessBreakpointAction.m in Sources */,
+				79FD4F961A90ED6800B43C63 /* AttachToProcessBreakpointActionPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +256,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(HOME)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/SharedFrameworks",
+				);
 				INFOPLIST_FILE = AttachToProcessBreakpointAction/Info.plist;
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -244,6 +274,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DSTROOT = "$(HOME)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/SharedFrameworks",
+				);
 				INFOPLIST_FILE = AttachToProcessBreakpointAction/Info.plist;
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -271,6 +305,7 @@
 				79FD4F9B1A90ED6800B43C63 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
