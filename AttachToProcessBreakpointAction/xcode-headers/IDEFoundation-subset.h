@@ -12,6 +12,7 @@
 @class DVTTextDocumentLocation;
 @class IDEConsoleAdaptor;
 @class IDELaunchSession;
+@class IDEBreakpoint;
 
 @protocol IDEDebugNavigableModel <NSObject>
 @property(readonly) IDELaunchSession *launchSession;
@@ -71,6 +72,7 @@
 @property(copy) NSString *displayName;
 
 - (id)initFromXMLUnarchiver:(id)arg1 archiveVersion:(float)arg2;
+- (NSString*)expandExpressionsAndMacrosInString:(NSString*)arg1 usingBreakpoint:(IDEBreakpoint*)arg2;
 @end
 
 #endif

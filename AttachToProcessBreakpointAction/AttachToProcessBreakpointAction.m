@@ -21,11 +21,23 @@
   [self setDisplayName:@"Attach To Process"];
 }
 
-- (void)performActionUsingContext:(IDEBreakpointActionEvaluationContext*)context andBreakpoint:(id)breakpoint {
-  id debugSession = [context debugSession];
-  [debugSession executeDebuggerCommand:[self consoleCommand]
-                              threadID:[context selectedThreadIndex]
-                          stackFrameID:[context selectedFrameIndex]];
+- (void)attachToProcess:(NSString*)pidString {
+  NSLog(@"attachToProcess: %@", pidString);
+}
+
+- (void)performActionUsingContext:(IDEBreakpointActionEvaluationContext*)context andBreakpoint:(IDEBreakpoint*)breakpoint {
+  id<IDEDebugSession> debugSession = [context debugSession];
+  [debugSession evaluateExpression:self.consoleCommand
+                          threadID:[context selectedThreadIndex]
+                      stackFrameID:[context selectedFrameIndex]
+                             queue:dispatch_get_main_queue()
+                 completionHandler:^(NSString* result, NSString* s2) {
+                   [self attachToProcess:result];
+                 }];
+
+//  [debugSession executeDebuggerCommand:[self consoleCommand]
+//                              threadID:[context selectedThreadIndex]
+//                          stackFrameID:[context selectedFrameIndex]];
 }
 
 + (NSArray*)propertiesAffectingPersistenceState {
