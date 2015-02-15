@@ -8,6 +8,9 @@
 
 #import "AttachToProcessBreakpointAction.h"
 #import "AttachToProcessBreakpointActionPlugin.h"
+#import "xcode-headers/DVTFoundation-subset.h"
+#import "xcode-headers/IDEKit-subset.h"
+#import "debug.h"
 
 @implementation AttachToProcessBreakpointAction
 - (instancetype)init {
@@ -23,10 +26,34 @@
 
 - (void)attachToProcess:(NSString*)pidString {
   NSLog(@"attachToProcess: %@", pidString);
+  int pid = [pidString intValue];
+  if (!pid)
+    return;
+
+  DVTLocalProcessInformation* proc = nil;
+  for (DVTLocalProcessInformation* p in [DVTLocalProcessInformation currentProcessInformations]) {
+    if ([p pid] == pid) {
+      proc = p;
+      break;
+    }
+  }
+  if (!proc)
+    return;
+
+  IDEWorkspaceWindowController *workspaceController =
+      [IDEWorkspaceWindow lastActiveWorkspaceWindowController];
+  CHECK(workspaceController);
+  IDEWorkspaceTabController *workspaceTabController =
+      [workspaceController activeWorkspaceTabController];
+  CHECK(workspaceTabController);
+
+  id result = [IDEAttachToProcessHelper attachToProcess:proc fromWorkspaceTabController:workspaceTabController];
+  CHECK(result);
 }
 
 - (void)performActionUsingContext:(IDEBreakpointActionEvaluationContext*)context andBreakpoint:(IDEBreakpoint*)breakpoint {
   id<IDEDebugSession> debugSession = [context debugSession];
+  CHECK(debugSession);
   [debugSession evaluateExpression:self.consoleCommand
                           threadID:[context selectedThreadIndex]
                       stackFrameID:[context selectedFrameIndex]

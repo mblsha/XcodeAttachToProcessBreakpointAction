@@ -85,4 +85,20 @@
 - (id)initForReadingWithData:(id)arg1;
 @end
 
+@interface DVTProcessInformation : NSObject
+- (id)initWithPID:(int)arg1;
+@property(readonly) NSString *preferredArchitecture; // @synthesize preferredArchitecture=_preferredArchitecture;
+@property(readonly) NSURL *processURL; // @synthesize processURL=_processURL;
+@property(readonly) NSString *displayName; // @synthesize displayName=_displayName;
+@property(readonly) int pid; // @synthesize pid=_pid;
+@property(readonly) BOOL isDebuggable;
+@end
+
+@interface DVTLocalProcessInformation : DVTProcessInformation
++ (id)currentProcessInformations;
+@property(copy, nonatomic) NSString *firstApplicationArgument; // @synthesize firstApplicationArgument=_firstApplicationArgument;
+@property(copy, nonatomic) NSString *requestedApplicationName; // @synthesize requestedApplicationName=_requestedApplicationName;
+@property(copy, nonatomic) NSString *realApplicationName; // @synthesize realApplicationName=_realApplicationName;
+@end
+
 #endif

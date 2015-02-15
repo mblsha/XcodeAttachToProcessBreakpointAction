@@ -8,14 +8,7 @@
 
 #import "AttachToProcessBreakpointActionPlugin.h"
 #import "xcode-headers/DVTFoundation-subset.h"
-
-#define CHECK(x)                                                             \
-do {                                                                       \
-if (!(x)) {                                                              \
-fprintf(stderr, "Check %s failed at %s:%d\n", #x, __FILE__, __LINE__); \
-exit(1);                                                               \
-}                                                                        \
-} while (0)
+#import "debug.h"
 
 static AttachToProcessBreakpointActionPlugin *sharedPlugin;
 
