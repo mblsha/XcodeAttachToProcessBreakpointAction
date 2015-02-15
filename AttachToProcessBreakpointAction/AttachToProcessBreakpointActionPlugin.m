@@ -63,8 +63,8 @@ static AttachToProcessBreakpointActionPlugin *sharedPlugin;
       @"version": @"0.1",
       @"placement": @"bottom",
 
-      @"breakpointActionClass": @"AttachToProcessBreakpointAction", // @"AttachToProcessBreakpointAction",
-      @"controllerClass": @"IDEShellCommandBreakpointActionEditor", // @"AttachToProcessBreakpointActionEditor",
+      @"breakpointActionClass": @"AttachToProcessBreakpointAction",
+      @"controllerClass": @"AttachToProcessBreakpointActionEditor", // @"AttachToProcessBreakpointActionEditor" IDEShellCommandBreakpointActionEditor,
     };
 
     DVTExtension* extension = [[DVTExtension alloc] initWithPropertyList:plist owner:plugIn];

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		796051E91A9103710001F0B7 /* AttachToProcessBreakpointAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 796051E81A9103710001F0B7 /* AttachToProcessBreakpointAction.m */; };
+		796051ED1A910A5E0001F0B7 /* IDEFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796051EC1A910A5E0001F0B7 /* IDEFoundation.framework */; };
+		796051EF1A910D860001F0B7 /* AttachToProcessBreakpointActionEditor.xib in Resources */ = {isa = PBXBuildFile; fileRef = 796051EE1A910D860001F0B7 /* AttachToProcessBreakpointActionEditor.xib */; };
 		79FD4F8C1A90ED6800B43C63 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79FD4F8B1A90ED6800B43C63 /* AppKit.framework */; };
 		79FD4F8E1A90ED6800B43C63 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79FD4F8D1A90ED6800B43C63 /* Foundation.framework */; };
 		79FD4F931A90ED6800B43C63 /* AttachToProcessBreakpointAction.xcscheme in Resources */ = {isa = PBXBuildFile; fileRef = 79FD4F921A90ED6800B43C63 /* AttachToProcessBreakpointAction.xcscheme */; };
@@ -16,6 +19,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		796051E71A9103710001F0B7 /* AttachToProcessBreakpointAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttachToProcessBreakpointAction.h; sourceTree = "<group>"; };
+		796051E81A9103710001F0B7 /* AttachToProcessBreakpointAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttachToProcessBreakpointAction.m; sourceTree = "<group>"; };
+		796051EB1A9103CD0001F0B7 /* IDEFoundation-subset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "IDEFoundation-subset.h"; path = "xcode-headers/IDEFoundation-subset.h"; sourceTree = "<group>"; };
+		796051EC1A910A5E0001F0B7 /* IDEFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IDEFoundation.framework; path = ../../../../../../Applications/Xcode.app/Contents/Frameworks/IDEFoundation.framework; sourceTree = "<group>"; };
+		796051EE1A910D860001F0B7 /* AttachToProcessBreakpointActionEditor.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AttachToProcessBreakpointActionEditor.xib; sourceTree = "<group>"; };
 		79FD4F881A90ED6800B43C63 /* AttachToProcessBreakpointAction.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AttachToProcessBreakpointAction.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		79FD4F8B1A90ED6800B43C63 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		79FD4F8D1A90ED6800B43C63 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -39,6 +47,7 @@
 			files = (
 				79FD4F8C1A90ED6800B43C63 /* AppKit.framework in Frameworks */,
 				79FD4F8E1A90ED6800B43C63 /* Foundation.framework in Frameworks */,
+				796051ED1A910A5E0001F0B7 /* IDEFoundation.framework in Frameworks */,
 				79FD4FA51A90F8E900B43C63 /* DVTFoundation.framework in Frameworks */,
 				79FD4FA61A90F8E900B43C63 /* DVTKit.framework in Frameworks */,
 			);
@@ -67,6 +76,7 @@
 		79FD4F8A1A90ED6800B43C63 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				796051EC1A910A5E0001F0B7 /* IDEFoundation.framework */,
 				79FD4FA31A90F8E900B43C63 /* DVTFoundation.framework */,
 				79FD4FA41A90F8E900B43C63 /* DVTKit.framework */,
 				79FD4F8B1A90ED6800B43C63 /* AppKit.framework */,
@@ -79,6 +89,9 @@
 			isa = PBXGroup;
 			children = (
 				79FD4FA01A90EE5400B43C63 /* xcode-headers */,
+				796051E71A9103710001F0B7 /* AttachToProcessBreakpointAction.h */,
+				796051E81A9103710001F0B7 /* AttachToProcessBreakpointAction.m */,
+				796051EE1A910D860001F0B7 /* AttachToProcessBreakpointActionEditor.xib */,
 				79FD4F941A90ED6800B43C63 /* AttachToProcessBreakpointActionPlugin.h */,
 				79FD4F951A90ED6800B43C63 /* AttachToProcessBreakpointActionPlugin.m */,
 				79FD4F901A90ED6800B43C63 /* Supporting Files */,
@@ -103,6 +116,7 @@
 				79FD4F9E1A90EE4E00B43C63 /* IDEFoundation.h */,
 				79FD4F9F1A90EE4E00B43C63 /* IDEKit.h */,
 				79FD4FA11A90F7B500B43C63 /* DVTFoundation-subset.h */,
+				796051EB1A9103CD0001F0B7 /* IDEFoundation-subset.h */,
 			);
 			name = "xcode-headers";
 			sourceTree = "<group>";
@@ -164,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79FD4F931A90ED6800B43C63 /* AttachToProcessBreakpointAction.xcscheme in Resources */,
+				796051EF1A910D860001F0B7 /* AttachToProcessBreakpointActionEditor.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +189,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				796051E91A9103710001F0B7 /* AttachToProcessBreakpointAction.m in Sources */,
 				79FD4F961A90ED6800B43C63 /* AttachToProcessBreakpointActionPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +275,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/SharedFrameworks",
+					"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Frameworks",
 				);
 				INFOPLIST_FILE = AttachToProcessBreakpointAction/Info.plist;
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
@@ -277,6 +294,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/SharedFrameworks",
+					"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Frameworks",
 				);
 				INFOPLIST_FILE = AttachToProcessBreakpointAction/Info.plist;
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
