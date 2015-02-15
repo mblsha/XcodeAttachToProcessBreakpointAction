@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 mblsha. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+@import Cocoa;
 #import "xcode-headers/IDEFoundation-subset.h"
 #import "xcode-headers/DVTFoundation-subset.h"
 
@@ -23,5 +23,7 @@
 @end
 
 @interface AttachToProcessBreakpointActionEditor : NSViewController
-- (id)initWithAction:(IDEBreakpointAction*)action;
+@property (weak) IBOutlet NSTextField *commandTextField;
+@property (weak) AttachToProcessBreakpointAction* action;
+- (id)initWithAction:(AttachToProcessBreakpointAction*)action;
 @end

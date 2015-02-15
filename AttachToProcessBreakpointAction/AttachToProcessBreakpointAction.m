@@ -48,11 +48,21 @@
 @end
 
 @implementation AttachToProcessBreakpointActionEditor
-- (id)initWithAction:(IDEBreakpointAction*)action {
+- (id)initWithAction:(AttachToProcessBreakpointAction*)action {
   NSBundle* bundle = [AttachToProcessBreakpointActionPlugin sharedPlugin].bundle;
   if ((self = [super initWithNibName:@"AttachToProcessBreakpointActionEditor" bundle:bundle])) {
-    // woohoo
+    self.action = action;
   }
   return self;
+}
+
+- (void)awakeFromNib {
+  if (self.action.consoleCommand) {
+    [self.commandTextField setStringValue:self.action.consoleCommand];
+  }
+}
+
+- (IBAction)commandDidChange:(id)sender {
+  [self.action setConsoleCommand:[self.commandTextField stringValue]];
 }
 @end
