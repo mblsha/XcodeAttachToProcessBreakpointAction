@@ -11,7 +11,7 @@
 #import "xcode-headers/DVTFoundation-subset.h"
 
 @interface AttachToProcessBreakpointAction : IDEBreakpointAction
-@property(copy) NSString *consoleCommand;
+@property(copy) NSString* consoleCommand;
 
 + (id)propertiesAffectingPersistenceState;
 - (void)dvt_encodeAttributesWithXMLArchiver:(id)arg1 version:(id)arg2;
@@ -23,7 +23,7 @@
 @end
 
 @interface AttachToProcessBreakpointActionEditor : NSViewController
-@property (weak) IBOutlet NSTextField *commandTextField;
-@property (weak) AttachToProcessBreakpointAction* action;
+@property(weak) IBOutlet NSTextField* commandTextField;
+@property(weak) AttachToProcessBreakpointAction* action;
 - (id)initWithAction:(AttachToProcessBreakpointAction*)action;
 @end

@@ -10,17 +10,18 @@
 #import "xcode-headers/DVTFoundation-subset.h"
 #import "debug.h"
 
-static AttachToProcessBreakpointActionPlugin *sharedPlugin;
+static AttachToProcessBreakpointActionPlugin* sharedPlugin;
 
-@interface AttachToProcessBreakpointActionPlugin()
-@property (nonatomic, strong, readwrite) NSBundle *bundle;
+@interface AttachToProcessBreakpointActionPlugin ()
+@property(nonatomic, strong, readwrite) NSBundle* bundle;
 @end
 
 @implementation AttachToProcessBreakpointActionPlugin
 
-+ (void)pluginDidLoad:(NSBundle *)plugin {
++ (void)pluginDidLoad:(NSBundle*)plugin {
   static dispatch_once_t onceToken;
-  NSString *currentApplicationName = [[NSBundle mainBundle] infoDictionary][@"CFBundleName"];
+  NSString* currentApplicationName =
+      [[NSBundle mainBundle] infoDictionary][@"CFBundleName"];
   if ([currentApplicationName isEqual:@"Xcode"]) {
     dispatch_once(&onceToken, ^{
       sharedPlugin = [[self alloc] initWithBundle:plugin];
@@ -32,16 +33,17 @@ static AttachToProcessBreakpointActionPlugin *sharedPlugin;
   return sharedPlugin;
 }
 
-- (id)initWithBundle:(NSBundle *)plugin {
+- (id)initWithBundle:(NSBundle*)plugin {
   if (self = [super init]) {
     // reference to plugin's bundle, for resource access
     self.bundle = plugin;
 
     DVTPlugInManager* manager = DVTPlugInManager.defaultPlugInManager;
     CHECK(manager);
-    DVTExtensionPoint* point = [manager extensionPointWithIdentifier:@"Xcode.IDEKit.IDEBreakpointActionEditor"];
+    DVTExtensionPoint* point = [manager
+        extensionPointWithIdentifier:@"Xcode.IDEKit.IDEBreakpointActionEditor"];
     CHECK(point);
-    NSMutableSet *extensions = (NSMutableSet*)[point extensions];
+    NSMutableSet* extensions = (NSMutableSet*)[point extensions];
     CHECK(extensions);
 
     // we need some plugin to act as an owner for our extension
@@ -49,43 +51,25 @@ static AttachToProcessBreakpointActionPlugin *sharedPlugin;
     CHECK(plugIn);
 
     NSDictionary* plist = @{
-      @"point": @"Xcode.IDEKit.IDEBreakpointActionEditor",
+      @"point" : @"Xcode.IDEKit.IDEBreakpointActionEditor",
 
-      @"id": @"Xcode.BreakpointActionEditor.AttachToProcess",
-      @"name": @"AttachToProcess Breakpoint Action Editor",
-      @"version": @"0.1",
-      @"placement": @"bottom",
+      @"id" : @"Xcode.BreakpointActionEditor.AttachToProcess",
+      @"name" : @"AttachToProcess Breakpoint Action Editor",
+      @"version" : @"0.1",
+      @"placement" : @"bottom",
 
-      @"breakpointActionClass": @"AttachToProcessBreakpointAction",
-      @"controllerClass": @"AttachToProcessBreakpointActionEditor", // @"AttachToProcessBreakpointActionEditor" IDEShellCommandBreakpointActionEditor,
+      @"breakpointActionClass" : @"AttachToProcessBreakpointAction",
+      @"controllerClass" : @"AttachToProcessBreakpointActionEditor",
     };
 
-    DVTExtension* extension = [[DVTExtension alloc] initWithPropertyList:plist owner:plugIn];
+    DVTExtension* extension =
+        [[DVTExtension alloc] initWithPropertyList:plist owner:plugIn];
     [extension awakeWithPropertyList:plist];
     CHECK(extension);
 
     [extensions addObject:extension];
-
-    // Create menu items, initialize UI, etc.
-/*
-    // Sample Menu Item:
-    NSMenuItem *menuItem = [[NSApp mainMenu] itemWithTitle:@"Edit"];
-    if (menuItem) {
-      [[menuItem submenu] addItem:[NSMenuItem separatorItem]];
-      NSMenuItem *actionMenuItem = [[NSMenuItem alloc] initWithTitle:@"Do Action" action:@selector(doMenuAction) keyEquivalent:@""];
-      [actionMenuItem setTarget:self];
-      [[menuItem submenu] addItem:actionMenuItem];
-    }
-*/
   }
   return self;
-}
-
-// Sample Action, for menu item:
-- (void)doMenuAction {
-  NSAlert *alert = [[NSAlert alloc] init];
-  [alert setMessageText:@"Hello, World"];
-  [alert runModal];
 }
 
 - (void)dealloc {

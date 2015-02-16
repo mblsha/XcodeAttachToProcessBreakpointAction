@@ -12,5 +12,5 @@
 
 + (instancetype)sharedPlugin;
 
-@property (nonatomic, strong, readonly) NSBundle* bundle;
+@property(nonatomic, strong, readonly) NSBundle* bundle;
 @end
