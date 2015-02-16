@@ -24,11 +24,21 @@
   [self setDisplayName:@"Attach To Process"];
 }
 
-- (void)attachToProcess:(NSString*)pidString {
+- (void)_showError:(NSString*)error {
+  NSAlert *alert = [[NSAlert alloc] init];
+  [alert setMessageText:error];
+  [alert runModal];
+}
+
+- (void)_attachToProcess:(NSString*)pidString {
   NSLog(@"attachToProcess: %@", pidString);
   int pid = [pidString intValue];
-  if (!pid)
+  if (!pid) {
+    [self _showError:[NSString
+                        stringWithFormat:@"Unable to convert '%@' to integer",
+                                         self.consoleCommand]];
     return;
+  }
 
   DVTLocalProcessInformation* proc = nil;
   for (DVTLocalProcessInformation* p in
@@ -38,8 +48,13 @@
       break;
     }
   }
-  if (!proc)
+
+  if (!proc) {
+    [self _showError:[NSString stringWithFormat:
+                                  @"%d is not a valid PID (evaluated '%@')",
+                                  pid, self.consoleCommand]];
     return;
+  }
 
   IDEWorkspaceWindowController* workspaceController =
       [IDEWorkspaceWindow lastActiveWorkspaceWindowController];
@@ -62,12 +77,8 @@
                       stackFrameID:[context selectedFrameIndex]
                              queue:dispatch_get_main_queue()
                  completionHandler:^(NSString* result, NSString* s2) {
-                   [self attachToProcess:result];
+                   [self _attachToProcess:result];
                  }];
-
-  // [debugSession executeDebuggerCommand:[self consoleCommand]
-  //                             threadID:[context selectedThreadIndex]
-  //                         stackFrameID:[context selectedFrameIndex]];
 }
 
 + (NSArray*)propertiesAffectingPersistenceState {
